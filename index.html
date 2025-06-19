@@ -123,7 +123,9 @@
             }
 
             /* Reset specific elements for printing */
-            .cover-page,
+            .cover-page {
+                page-break-after: always;
+            }
             section { /* Target all sections for page breaking */
                 page-break-after: always;
                 box-shadow: none !important; /* Remove shadows for clean print */
@@ -132,6 +134,12 @@
                 padding-top: 0.25in; /* Small top padding for print sections */
                 padding-bottom: 0.25in; /* Small bottom padding for print sections */
             }
+            /* Override page-break for the about-me section to allow footer to flow */
+            #about-me {
+                page-break-after: auto !important; 
+                page-break-inside: avoid !important; /* Keep contents of about-me together */
+            }
+
 
             /* Avoid breaking inside cards or grids for better layout */
             .stat-card,
@@ -181,10 +189,7 @@
             #about-me .contact-info p {
                 font-size: 10pt !important; /* Slightly smaller contact info for print */
             }
-            #about-me {
-                page-break-after: auto; /* Allow auto break after about-me, but prefer no break inside if possible */
-                page-break-inside: avoid; /* Keep contents of about-me together */
-            }
+            
             /* Ensure footer doesn't break onto a new page if space is available */
             footer {
                 page-break-before: auto; 
@@ -238,9 +243,10 @@
 
         <!-- Madison Section -->
         <section id="market-madison" class="mb-12">
-            <h2 class="text-3xl font-bold text-center mb-8 section-header">Madison: Market Pulse & Deep Dive</h2>
+            <!-- Updated: Title changed from "Madison: Market Pulse & Deep Dive" to "Madison: Market Pulse" -->
+            <h2 class="text-3xl font-bold text-center mb-8 section-header">Madison: Market Pulse</h2>
             <p class="text-lg text-gray-700 leading-relaxed text-center mb-8">
-                Madison offers that cherished **hometown feel with an artsy edge**, making it a truly unique place to call home. This community provides incredible **affordability within a growing, vibrant atmosphere**, attracting residents who appreciate both its established charm and exciting future. From local businesses to community events, Madison is consistently building on its strong foundations while embracing new energy.
+                Madison offers that cherished <b class="font-semibold">hometown feel with an artsy edge</b>, making it a truly unique place to call home. This community provides incredible <b class="font-semibold">affordability within a growing, vibrant atmosphere</b>, attracting residents who appreciate both its established charm and exciting future. From local businesses to community events, Madison is consistently building on its strong foundations while embracing new energy.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div class="area-summary-card">
@@ -296,7 +302,7 @@
         <section id="market-hendersonville" class="mb-12">
             <h2 class="text-3xl font-bold text-center mb-8 section-header">Hendersonville: Market Pulse</h2>
             <p class="text-lg text-gray-700 leading-relaxed text-center mb-8">
-                Just north of Nashville, Hendersonville offers an experience of **upscale lake town living**. This vibrant community beautifully combines stunning lakeside properties with a wealth of **excellent shopping and amenities**, providing a luxurious yet comfortable lifestyle. It's a prime destination for those seeking scenic beauty, top-tier conveniences, and a strong sense of community.
+                Just north of Nashville, Hendersonville offers an experience of <b class="font-semibold">upscale lake town living</b>. This vibrant community beautifully combines stunning lakeside properties with a wealth of <b class="font-semibold">excellent shopping and amenities</b>, providing a luxurious yet comfortable lifestyle. It's a prime destination for those seeking scenic beauty, top-tier conveniences, and a strong sense of community.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="area-summary-card">
@@ -324,7 +330,7 @@
         <section id="market-goodlettsville" class="mb-12">
             <h2 class="text-3xl font-bold text-center mb-8 section-header">Goodlettsville: Market Pulse</h2>
             <p class="text-lg text-gray-700 leading-relaxed text-center mb-8">
-                Goodlettsville embodies **family-friendly suburban charm**, making it a highly desirable destination for those seeking a supportive and engaging community. It's particularly **known for its strong community, good schools, and welcoming atmosphere**, offering residents a peaceful yet connected lifestyle with convenient access to amenities.
+                Goodlettsville embodies <b class="font-semibold">family-friendly suburban charm</b>, making it a highly desirable destination for those seeking a supportive and engaging community. It's particularly <b class="font-semibold">known for its strong community, good schools, and welcoming atmosphere</b>, offering residents a peaceful yet connected lifestyle with convenient access to amenities.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="area-summary-card">
@@ -352,7 +358,7 @@
         <section id="market-old-hickory" class="mb-12">
             <h2 class="text-3xl font-bold text-center mb-8 section-header">Old Hickory: Market Pulse</h2>
             <p class="text-lg text-gray-700 leading-relaxed text-center mb-8">
-                Old Hickory offers a unique blend of a **hip lake town atmosphere with an affordable appeal**, making it a hidden gem in the Northern Nashville corridor. This community provides a relaxed lakeside lifestyle, rich with **historic charm** and a growing, vibrant community feel. Residents enjoy access to beautiful Old Hickory Lake, local businesses, and a serene environment with a distinct sense of place.
+                Old Hickory offers a unique blend of a <b class="font-semibold">hip lake town atmosphere with an affordable appeal</b>, making it a hidden gem in the Northern Nashville corridor. This community provides a relaxed lakeside lifestyle, rich with <b class="font-semibold">historic charm</b> and a growing, vibrant community feel. Residents enjoy access to beautiful Old Hickory Lake, local businesses, and a serene environment with a distinct sense of place.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="area-summary-card">
@@ -492,22 +498,25 @@
 
         <!-- About Me Section -->
         <section id="about-me" class="mb-12 text-center">
-            <h2 class="text-3xl font-bold section-header">About Donna Bradbury: Your North Nashville Real Estate Expert</h2>
+            <!-- Updated: Title split and font sizes adjusted -->
+            <h2 class="text-3xl font-bold section-header">About Donna Bradbury<br><span class="text-xl font-normal">Your North Nashville Real Estate Expert</span></h2>
             <img src=https://i.postimg.cc/yN39GBCQ/Biz-Jones-Donna-Bradbury-334.jpg alt="Donna Bradbury Headshot" class="rounded-full mx-auto mb-6 shadow-lg">
-            <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-8">
+            <!-- Updated: Line spacing reduced from leading-relaxed to leading-normal -->
+            <p class="text-lg text-gray-700 leading-normal max-w-3xl mx-auto mb-4">
                 Bringing a dynamic legacy from the competitive New York City real estate market, I'm Donna Bradbury, and I've found my true calling right here in vibrant North Nashville. As an empty nester, I understand the nuances of finding not just a house, but a true home and community where new chapters can unfold.
             </p>
-            <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-8">
+            <p class="text-lg text-gray-700 leading-normal max-w-3xl mx-auto mb-4">
                 My passion is helping homeowners navigate the ever-evolving market, guiding buyers to discover the hidden gems in our diverse neighborhoods, and welcoming those relocating to embrace the unique charm of Music City's northern corridor. I specialize in Madison, Hendersonville, Goodlettsville, and Old Hickory – communities I know intimately and deeply love.
             </p>
-            <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-8">
-                With a keen eye for value, a commitment to personalized service, and a belief that every client deserves a seamless and **worry-free** experience, I am dedicated to being your trusted advisor. Let's make your real estate dreams a reality in North Nashville!
+            <p class="text-lg text-gray-700 leading-normal max-w-3xl mx-auto mb-8">
+                With a keen eye for value, a commitment to personalized service, and a belief that every client deserves a seamless and <b class="font-semibold">worry-free</b> experience, I am dedicated to being your trusted advisor. Let's make your real estate dreams a reality in North Nashville!
             </p>
             
             <div class="contact-info mt-10 space-y-2">
-                <h3 class="text-2xl font-bold text-[#134B70]">Contact Donna Today!</h3>
-                <p class="text-lg text-gray-700 font-semibold">Veritas Realty Group, LLC</p>
-                <p class="text-lg text-gray-700">📍8115 Isabella Lane, Suite 9, Brentwood, TN 37270</p>
+                <!-- Updated: Contact title, font size, and company/address formatting -->
+                <h3 class="text-xl font-bold text-[#134B70]">Contact Donna Bradbury Today</h3>
+                <p class="text-lg text-gray-700 font-semibold inline-block">Veritas Realty Group, LLC</p>
+                <p class="text-lg text-gray-700 inline-block ml-2">📍8115 Isabella Lane, Suite 9, Brentwood, TN 37270</p>
                 <p class="text-lg text-gray-700">📱 917-565-4328 Cell</p>
                 <p class="text-lg text-gray-700">📞 615-620-4700 Office</p>
                 <p class="text-lg text-gray-700">📧 donnabradburyrealestate@gmail.com</p>
