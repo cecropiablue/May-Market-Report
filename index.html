@@ -171,9 +171,19 @@
                 print-color-adjust: exact !important;
             }
             
-            /* Prevent an extra blank page after the very last section if it naturally ends the page */
+            /* Specific print adjustments for the About Me section */
+            #about-me img {
+                max-width: 120px !important; /* Smaller image for print */
+                height: auto !important;
+                margin-top: 0.5rem !important; /* Reduce top margin for print */
+                margin-bottom: 0.5rem !important; /* Reduce bottom margin for print */
+            }
+            #about-me .contact-info p {
+                font-size: 10pt !important; /* Slightly smaller contact info for print */
+            }
             #about-me {
-                page-break-after: auto; 
+                page-break-after: auto; /* Allow auto break after about-me, but prefer no break inside if possible */
+                page-break-inside: avoid; /* Keep contents of about-me together */
             }
             /* Ensure footer doesn't break onto a new page if space is available */
             footer {
@@ -195,7 +205,7 @@
             <p class="text-lg text-gray-700 mt-12 font-semibold">Prepared Exclusively For You By:</p>
             <p class="text-2xl font-bold text-[#134B70]">Donna Bradbury</p>
             <p class="text-base text-gray-600 mt-2">Your North Nashville Real Estate Expert</p>
-            <p class="text-sm text-gray-500 mt-2">Month Year</p> <!-- Placeholder for current month/year -->
+            <p class="text-sm text-gray-500 mt-2">May 2025</p>
         </section>
 
         <!-- Introduction -->
@@ -228,7 +238,7 @@
 
         <!-- Madison Section -->
         <section id="market-madison" class="mb-12">
-            <h2 class="text-3xl font-bold text-center mb-8 section-header">Madison (37115): Market Pulse & Deep Dive</h2>
+            <h2 class="text-3xl font-bold text-center mb-8 section-header">Madison: Market Pulse & Deep Dive</h2>
             <p class="text-lg text-gray-700 leading-relaxed text-center mb-8">
                 Madison offers that cherished **hometown feel with an artsy edge**, making it a truly unique place to call home. This community provides incredible **affordability within a growing, vibrant atmosphere**, attracting residents who appreciate both its established charm and exciting future. From local businesses to community events, Madison is consistently building on its strong foundations while embracing new energy.
             </p>
@@ -291,7 +301,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="area-summary-card">
                     <p class="text-5xl font-bold text-[#134B70]">$499.5K</p>
-                    <h3 class="text-lg font-bold mt-2">Median Sold Price</h3>
+                    <h3 class="lg font-bold mt-2">Median Sold Price</h3>
                     <p class="text-gray-600 text-sm mt-1">May 2025 (Aggregated across key ZIPs)</p>
                 </div>
                 <div class="area-summary-card">
@@ -463,7 +473,7 @@
                     <h3 class="text-2xl font-bold text-green-800 mb-4">For Sellers 🟢</h3>
                     <ul class="space-y-2 text-green-900">
                         <li class="flex"><span class="mr-2">✅</span><strong>Price Realistically:</strong> Competitive pricing from day one is crucial in a more balanced market.</li>
-                        <li class="flex"><span class="mr-2">✅</span><strong>Maximize Presentation:</strong> With more competition, curb appeal and a well-staged home are paramount.</li>
+                        <li class="flex"><span class="mr-2">✅</span><strong>Maximize Presentation:</i> With more competition, curb appeal and a well-staged home are paramount.</li>
                         <li class="flex"><span class="mr-2">✅</span><strong>Be Flexible:</strong> Prepare for negotiations on price and terms; adaptability can secure a sale.</li>
                     </ul>
                 </div>
@@ -496,7 +506,7 @@
             
             <div class="contact-info mt-10 space-y-2">
                 <h3 class="text-2xl font-bold text-[#134B70]">Contact Donna Today!</h3>
-                <p class="text-lg text-gray-700 font-semibold">Veritas Realty</p>
+                <p class="text-lg text-gray-700 font-semibold">Veritas Realty Group, LLC</p>
                 <p class="text-lg text-gray-700">📍8115 Isabella Lane, Suite 9, Brentwood, TN 37270</p>
                 <p class="text-lg text-gray-700">📱 917-565-4328 Cell</p>
                 <p class="text-lg text-gray-700">📞 615-620-4700 Office</p>
@@ -712,7 +722,6 @@
                     data: {
                         labels: ['1BR', '2BR', '3BR', '4BR', '5+ BR'],
                         datasets: [{
-                            label: '% MoM Change (May 2025)',
                             data: [33.3, 10.7, 26.2, 35.7, -11.1],
                             backgroundColor: (context) => {
                                 const value = context.raw;
